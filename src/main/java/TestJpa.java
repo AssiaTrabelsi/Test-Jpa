@@ -10,20 +10,23 @@ public class TestJpa {
 		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("Test-jpa");
 		EntityManager em = entityManagerFactory.createEntityManager();
 
-		Query query = em.createQuery("select a from Article a");
+		Query query = em.createQuery("select a from Article a where a.ref='F01'");
 
-		Article a = (Article) query.getResultList().get(0);
+		Article a = (Article) query.getSingleResult();
+
+		
+		 //Article article = new Article() ; 
+		 
+		//int id= article.getId() ; 
+		
+		if(a!=null)
+		{
+		 
+		 System.out.println(a.toString());
+		}
 		
 		
-		
-		/*Article article = new Article() ;
-		 int id= article.getId() ;
-		
-		em.persist(article);*/
-		
-		System.out.println(a.toString());
-		
-		
+
 		em.close();
 
 		entityManagerFactory.close();
