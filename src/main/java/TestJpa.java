@@ -24,10 +24,11 @@ public class TestJpa {
 		 */
 		// jointure JPQL avec les articles
 
-		TypedQuery<Bon> query = em.createQuery("select b from Bon b  INNER JOIN b.articles a where a.ref='A01'",Bon.class);
+		TypedQuery<Bon> query = em.createQuery("select b from Bon b  INNER JOIN b.articles a where a.ref='A01'",
+				Bon.class);
 
 		Bon bon = query.getResultList().get(0);
-		
+
 		Set<Article> articles = bon.getArticles();
 
 		for (Article article : articles) {
@@ -36,8 +37,6 @@ public class TestJpa {
 			System.out.println(bon.getFournisseur().getNom());
 
 		}
-		
-		
 
 		em.close();
 

@@ -17,8 +17,17 @@ public class Article {
 	@Column
 	private Double prix;
 	@ManyToOne
+	
 	@JoinColumn(name = "ID_FOU")
 	private Fournisseur fournisseur;
+
+	public Fournisseur getFournisseur() {
+		return fournisseur;
+	}
+
+	public void setFournisseur(Fournisseur fournisseur) {
+		this.fournisseur = fournisseur;
+	}
 
 	public int getId() {
 		return id;
